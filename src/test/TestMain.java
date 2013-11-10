@@ -1,3 +1,4 @@
+package test;
 
 import ICTCLAS.I3S.AC.ICTCLAS50;
 import java.util.*;
@@ -18,16 +19,16 @@ class TestMain {
         try {
             ICTCLAS50 testICTCLAS50 = new ICTCLAS50();
             String argu = ".";
-            if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("GB2312")) == false) {
+            if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("UTF-8")) == false) {
                 System.out.println("Init Fail!");
                 return;
             }
 
             testICTCLAS50.ICTCLAS_SetPOSmap(3);
 
-            byte nativeBytes[] = testICTCLAS50.ICTCLAS_ParagraphProcess(sInput.getBytes("GB2312"), 0, 0);//ï¿½Ö´Ê´ï¿½ï¿½ï¿½
+            byte nativeBytes[] = testICTCLAS50.ICTCLAS_ParagraphProcess(sInput.getBytes("UTF-8"), 0, 0);//ï¿½Ö´Ê´ï¿½ï¿½ï¿½
             System.out.println(nativeBytes.length);
-            String nativeStr = new String(nativeBytes, 0, nativeBytes.length, "GB2312");
+            String nativeStr = new String(nativeBytes, 0, nativeBytes.length, "UTF-8");
             System.out.println("nativeStr " + nativeStr);
 
             int nCount = 0;
@@ -37,9 +38,9 @@ class TestMain {
             System.out.println("nCount" + nCount);
             nCount = 0;
 
-            byte nativeBytes1[] = testICTCLAS50.ICTCLAS_ParagraphProcess(sInput.getBytes("GB2312"), 2, 0);
+            byte nativeBytes1[] = testICTCLAS50.ICTCLAS_ParagraphProcess(sInput.getBytes("UTF-8"), 2, 0);
             System.out.println(nativeBytes1.length);
-            String nativeStr1 = new String(nativeBytes1, 0, nativeBytes1.length, "GB2312");
+            String nativeStr1 = new String(nativeBytes1, 0, nativeBytes1.length, "UTF-8");
             System.out.println("nativerStrl " + nativeStr1);
             testICTCLAS50.ICTCLAS_SaveTheUsrDic();
             testICTCLAS50.ICTCLAS_Exit();
@@ -52,7 +53,7 @@ class TestMain {
         try {
             ICTCLAS50 testICTCLAS50 = new ICTCLAS50();
             String argu = ".";
-            if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("GB2312")) == false) {
+            if (testICTCLAS50.ICTCLAS_Init(argu.getBytes("UTF-8")) == false) {
                 System.out.println("Init Fail!");
                 return;
             }
@@ -65,7 +66,7 @@ class TestMain {
 
             testICTCLAS50.ICTCLAS_FileProcess(Inputfilenameb, 0, 1, Outputfilenameb);
 
-            int nCount = 0;
+            /*int nCount = 0;
             String usrdir = "userdict.txt"; 
             byte[] usrdirb = usrdir.getBytes();
             nCount = testICTCLAS50.ICTCLAS_ImportUserDictFile(usrdirb, 0);
@@ -75,7 +76,7 @@ class TestMain {
             String Outputfilename1 = "testing_result.txt";
             byte[] Outputfilenameb1 = Outputfilename1.getBytes();
 
-            testICTCLAS50.ICTCLAS_FileProcess(Inputfilenameb, 0, 0, Outputfilenameb1);
+            testICTCLAS50.ICTCLAS_FileProcess(Inputfilenameb, 0, 0, Outputfilenameb1);*/
 
         } catch (Exception ex) {
         }

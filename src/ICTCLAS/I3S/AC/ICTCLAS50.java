@@ -22,7 +22,7 @@ public class ICTCLAS50
 	/* Use static intializer */
 	static
 	{
-		System.load("/home/yuankunluo/workspace/wordspilt_lilei/libICTCLAS50.so");;
+		System.load("/home/yuankunluo/workspace/wordsplit_lilei/libICTCLAS50.so");;
 	}
 }
 
